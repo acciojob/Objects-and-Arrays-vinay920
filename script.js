@@ -1,17 +1,25 @@
-// Existing array and object
-let players = ["John", "Mike", "Emily"];
-let person = { name: "Alice", age: 25 };
+const players = ["John", "Bob", "Alice", "Poppy"];
+const person = {
+  name: "John Doe",
+  age: 80,
+};
 
 // Create a reference to the players array
-let team = players;
+const team = players;
 
 // Create a shallow copy of the players array
-let team1 = [...players];
+const team1 = players.slice();
 
 // Create a shallow copy of the person object
-let cap1 = { ...person };
+const cap1 = { ...person };
 
-// Testing the variables
-console.log(team);  // Output: ["John", "Mike", "Emily"]
-console.log(team1); // Output: ["John", "Mike", "Emily"]
-console.log(cap1);  // Output: { name: "Alice", age: 25 }
+// Test modifications
+team.push("Michael"); // This will also modify the players array since team references it.
+team1[0] = "Robert"; // This will not modify the original players array.
+cap1.name = "Jane Smith"; // This will not modify the original person object.
+
+console.log("Original players array:", players);
+console.log("team array:", team);
+console.log("team1 array:", team1);
+console.log("Original person object:", person);
+console.log("cap1 object:", cap1);
